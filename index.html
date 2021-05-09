@@ -8,50 +8,25 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
 
-
-
-
-
-
-
-
-
-
-
     <!-- add more visualization, more images -->
     <!-- make search by type, by generation-->
     <!-- arrange moves in order, use scrollbar within textarea, include details of moves and pp as well -->
 
-
-
-
-
-
-
-
-
-
-
-
 </head>
 <body>
     <div class="pokechecker">
-        <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/330px-International_Pok%C3%A9mon_logo.svg.png" alt="" height="80px" width="280px"><a href="https://pokeapi.co/"><img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="" height="30px" width="80px"></a></h1>
-        
+        <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/330px-International_Pok%C3%A9mon_logo.svg.png" alt="" height="80px" width="240px"><a href="https://pokeapi.co/"><img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="" height="30px" width="80px"></a></h1>
+        <button onclick="location.href = 'pokedex.html';" class="pokedexBtn">Back to Pokédex</button>
     
         <div class="getID">
-            <label for="search">Enter a Pokémon ID (1 - 898) or a Pokémon name: </label>
+            <label for="search">Enter a Pokémon ID <br> (1 - 898) or a Pokémon name: </label>
             <input min="0" max="802" id="search" placeholder="ID/Name" oninput="consoleInput()">
-            <button class="getPokemon">Get Pokémon</button>
+            <button class="getPokemon redGlo">Get Pokémon</button>
         </div>
     
         
         
-        <div class="results">
-            <!-- <div class="loading hidden">test - no data yet</div>
-    
-            <div class="success hidden">data collected</div> -->
-    
+        <div class="results">   
             <div class="pokemon"></div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 body {
 	min-height: 100vh;
 	background: linear-gradient(to bottom, #ff0000 0%, #ff0000 49%, #000000 49%, #000000 52%, #ffffff 52%, #ffffff 100%);
+	overflow-y: hidden;
 }
 
 .pokechecker {
@@ -12,13 +13,13 @@ body {
 	transform: translate(-50%, -50%);
 	padding: 250px 50px;
 	width: auto;
-	border: 15px solid black;
+	border: 5px solid black;
 	border-radius: 50%;
-	box-shadow: 1px -1px 3px 0 #000, -1px 1px 3px 0, -1px -1px 3px 0 #000, 1px 1px 3px 0 #000;
+	box-shadow: 0px 0px 25px 35px rgba(0,0,0,0.5)
 }
 
 h1 {
-	margin-top: 0;
+	margin: 0;
 	text-align: center;
 }
 
@@ -34,41 +35,52 @@ a {
 }
 
 label {
-	display: inline-block;
-	padding: 0.6em 0.6em 0.6em 0;
-	margin: 0;
-	flex-grow: 0.1;
+	display: flex;
+	padding: 10px 10px;
+	margin: 0 5px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 input {
+	box-sizing: border-box;
 	font-size: 20px;
 	border: 2px solid black;
 	border-radius: 5px;
-	width: 100px;
-	display: inline-block;
-	padding: 5px;
-	margin: auto;
-	padding: none;
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	margin: 12.6px 0;
+	padding: 6px;
 	background-color: beige;
-	flex-grow: 1;
-	font-family: Verdana, Geneva, Tahoma, sans-serif
+	width: 200px;
+	height: 60px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-button.getPokemon {
+button.getPokemon, .pokedexBtn {
 	font-size: 20px;
 	border: black 2px solid;
 	border-radius: 5px;
-	display: inline-block;
+	display: block;
+	position: relative;
+	flex-wrap: wrap;
 	padding: 5px;
 	color: black;
-	margin: auto 10px;
+	margin: 12.6px 10px;
 	background-color: whitesmoke;
 	font-weight: bold;
 	transition: 0.2s ease-out;
-	flex-grow: 1;
+	width: label200px;
+	height: 60px;
+	float: right;
 }
-.getPokemon:hover {
+.pokedexBtn{
+	padding: 5px 16px !important;
+	margin: 12.6px 10px 12.6px 0 !important;
+	width: 150px;
+	
+}
+.getPokemon:hover, .pokedexBtn:hover {
 	background-color: red;
 	color: white;
 	cursor: pointer;
@@ -78,20 +90,20 @@ button.getPokemon {
 
 .pokemonCard {
 	width: 1250px;
+	height: 530px;
 	display: flex;
 }
-.idName+img+data+stats{
+.LHS{
 	width: 246.53px;
 }
 .pokeIdName{
-	margin: 10px;
+	margin: 0 10px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 30px;
 	text-transform: capitalize;
 }
 .pokeImg{
-	height: 175px;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
@@ -99,7 +111,7 @@ button.getPokemon {
 .data{
 	width: 246.53px;
 	float: left;
-	margin: 10px;
+	margin: 1px 0;
 	text-align: center;
 	background-color: rgb(255, 220, 220);
 	border: black 2px solid;
@@ -112,7 +124,7 @@ button.getPokemon {
 .stats{
 	width: 246.53px;
 	float: left;
-	margin: 10px;
+	margin: 1px 0;
 	text-align: center;
 	background-color: rgb(255, 180, 180);
 	border: black 2px solid;
@@ -123,11 +135,13 @@ button.getPokemon {
 	margin: 10px;
 }
 .moves{
-	width: 100%;
+	width: 950px;
+	height: 473px;
 	margin: 10px;
+	margin-left: 7px;
 	padding: 20px;
-	text-align: justify;
-	text-justify:auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 	background-color: rgb(255, 240, 240);
 	border: black 2px solid;
 	border-radius: 5px;
