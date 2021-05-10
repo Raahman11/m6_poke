@@ -131,8 +131,8 @@ button.getPokemon, .pokedexBtn {
 }
 .moves{
 	width: 950px;
-	height: 465px;
-	margin: 10px 0 1px 0;
+	height: 472px;
+	margin: 0 0 1px 0;
 	margin-left: 7px;
 	padding: 20px;
 	overflow-y: auto;
@@ -143,3 +143,11 @@ button.getPokemon, .pokedexBtn {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	line-height: 1.8em;
 }
+
+/* id+Name
+data height
+data weight
+data moves
+
+
+*/
