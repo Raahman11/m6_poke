@@ -42,33 +42,56 @@ async function getPokemon() {
 		return `<span>${el.type.name}</span>`;
 	}).join(', ');
 
-	const pokemonMoves = pokemon.moves.map(skill => {
-		return `<li>${skill.move.name}</li>`
-	}).join("");
-
 	const pokemonMovesForPP = pokemon.moves.map(skill =>{
 		return `${skill.move.name}`
 	});
+	//GETTING MOVESDETAILS BY  INDIVIDUAL MOVES THEN PUSHING EACH SPECIFIED RESULTS INTO AN ARRAY
+	var movesDetails = [];
+	const fetchPokemonMoves = async function(){
+		for(let i = 0; i < pokemonMovesForPP.length; i++){
+			const url = `https://pokeapi.co/api/v2/move/${pokemonMovesForPP[i]}`;
+			const data = fetch(url).then(r => r.json()).then( ({pp, poweraccuracy, type, effect_entries, effect_chance, name}) => ({pp, poweraccuracy, type, effect_entries, effect_chance, name}) );
+			movesDetails.push(data);
+			var info = movesDetails;
+		}
+		//INDIVIDUAL MOVES DETAILS (for checking purposes)
+		for await (const moves of movesDetails){
+			//console.log(moves) //PROTIP: hover on <-- this for loop movesDetails[i] in VSCode to see the JSON tooltip!!
+		}
 	
-	for(let i = 0; i < pokemonMovesForPP.length; i++){
-		
+		for(let i = 0; i <pokemonMovesForPP.length; i++){
+			console.log(info[i]) 
+		}
 	}
+	let raw = fetchPokemonMoves();
+	console.log(raw)
 
+
+
+	
+	
 	/*
-	let pokemonFetchMoves = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.move.name}/`);
-	let moves = await pokemonFetchMoves.json;
+	for(let j = 0; j < pokemonMovesForPP.length; j++){
+		console.log(`${movesDetails.pp}`)
+	}
 	*/
-	console.log(pokemonMovesForPP.length)
-
+	const pokemonMoves = pokemon.moves.map(skill => {
+		return `<li class="movesList>${skill.move.name} (<b>PP: </b>${movesDetails.name})</li>`
+	}).join("");
+	/*
+	for(let i = 0; i <= pokemonMovesForPP.length; i++){
+		var li = document.getElementsByClassName('movesList')[i];
+		//li.appendChild()
+	}
+	*/
 
 	const pokemonHeight = ((pokemon.height)/10).toFixed(1);
 	const pokemonWeight = ((pokemon.weight)/10).toFixed(1);
 
-	
 	const pokemonCard = `<div class="pokemonCard">
 		<div class="LHS">
 			<div class="pokeIdName">#${pokemon.id} ${pokemon.name}</div>
-				<img src = ${pokemon.sprites.front_default} class="pokeImg" height="200px" width="200px">
+				<img src = ${pokemon.sprites.front_default} class="pokeImg" height="160px" width="160px">
 			<div class="data">
 				<div class="type" style="text-transform: capitalize;"><b>Type: </b>${pokemonTypes}</div>
 				<div class="abilities" style="text-transform: capitalize;"><b>Abilities: </b>${pokemonAbilities}</div>
@@ -98,7 +121,7 @@ async function getPokemon() {
 	pokeResults.style.borderRadius = "20px";
 	pokeResults.style.padding = "20px";
 	pokeResults.style.width = "auto";
-}
+};
 
 document.querySelector('.getPokemon').addEventListener('click', function (){
 	// alert("InputNum type is " + typeof(inputNum))

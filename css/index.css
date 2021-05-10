@@ -34,13 +34,6 @@ a {
 	flex-wrap: nowrap;
 }
 
-label {
-	display: flex;
-	padding: 10px 10px;
-	margin: 0 5px;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 input {
 	box-sizing: border-box;
 	font-size: 20px;
@@ -49,10 +42,10 @@ input {
 	display: flex;
 	position: relative;
 	flex-wrap: wrap;
-	margin: 12.6px 0;
+	margin: 12.6px 0 12.6px 10px;
 	padding: 6px;
 	background-color: beige;
-	width: 200px;
+	width: 480px;
 	height: 60px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -106,17 +99,19 @@ button.getPokemon, .pokedexBtn {
 .pokeImg{
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 10px;
 	display: block;
 }
 .data{
 	width: 246.53px;
 	float: left;
-	margin: 1px 0;
+	margin: 10px 0 1px 0;
 	text-align: center;
 	background-color: rgb(255, 220, 220);
 	border: black 2px solid;
 	border-radius: 5px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	height: 160px;
 }
 .type, .height, .weight{
 	margin: 10px;
@@ -136,7 +131,7 @@ button.getPokemon, .pokedexBtn {
 }
 .moves{
 	width: 950px;
-	height: 473px;
+	height: 467px;
 	margin: 10px;
 	margin-left: 7px;
 	padding: 20px;
